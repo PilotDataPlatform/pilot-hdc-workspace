@@ -17,7 +17,7 @@ from .config import ConfigClass
 
 
 def create_app():
-    """create app function."""
+    """Create app function."""
     app = FastAPI(
         title='Service Workspaces',
         description='Service Workspaces',

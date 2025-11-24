@@ -7,40 +7,13 @@
 import logging
 from functools import lru_cache
 from typing import Any
-from typing import Dict
-from typing import Optional
 
-from common import VaultClient
 from pydantic import BaseSettings
 from pydantic import Extra
 
 
-class VaultConfig(BaseSettings):
-    """Store vault related configuration."""
-
-    APP_NAME: str = 'service_auth'
-    CONFIG_CENTER_ENABLED: bool = False
-
-    VAULT_URL: Optional[str]
-    VAULT_CRT: Optional[str]
-    VAULT_TOKEN: Optional[str]
-
-    class Config:
-        env_file = '.env'
-        env_file_encoding = 'utf-8'
-
-
-def load_vault_settings(settings: BaseSettings) -> Dict[str, Any]:
-    config = VaultConfig()
-
-    if not config.CONFIG_CENTER_ENABLED:
-        return {}
-    client = VaultClient(config.VAULT_URL, config.VAULT_CRT, config.VAULT_TOKEN)
-    return client.get_from_vault(config.APP_NAME)
-
-
 class Settings(BaseSettings):
-    version = '0.1.0'
+    version = '2.2.7'
     APP_NAME: str = 'workspace_service'
     HOST: str = '0.0.0.0'
     PORT: int = 5068
@@ -61,10 +34,6 @@ class Settings(BaseSettings):
         env_file = '.env'
         env_file_encoding = 'utf-8'
         extra = Extra.allow
-
-        @classmethod
-        def customise_sources(cls, init_settings, env_settings, file_secret_settings):
-            return env_settings, load_vault_settings, init_settings, file_secret_settings
 
     def __init__(self, *args: Any, **kwds: Any) -> None:
         super().__init__(*args, **kwds)

@@ -1,12 +1,11 @@
 [tool.poetry]
 name = "workspace"
-version = "2.2.4"
+version = "2.2.7"
 description = ""
-authors = ["gregmccoy <greg@gkmc.ca>"]
-license = "AGPL 3.0"
+authors = ["Indoc Research"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.10,<3.11"
 fastapi = "0.88.0"
 httpx = "^0.23.0"
 pilot-platform-common = "0.3.0"

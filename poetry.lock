@@ -158,9 +158,6 @@ files = [
     {file = "aioitertools-0.11.0.tar.gz", hash = "sha256:42c68b8dd3a69c2bf7f2233bf7df4bb58b557bca5252ac02ed5187bbc67d6831"},
 ]
 
-[package.dependencies]
-typing_extensions = {version = ">=4.0", markers = "python_version < \"3.10\""}
-
 [[package]]
 name = "aioredis"
 version = "2.0.1"
@@ -1482,7 +1479,6 @@ files = [
 
 [package.dependencies]
 anyio = ">=3.4.0,<5"
-typing-extensions = {version = ">=3.10.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
 full = ["httpx (>=0.22.0)", "itsdangerous", "jinja2", "python-multipart", "pyyaml"]
@@ -1760,5 +1756,5 @@ multidict = ">=4.0"
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.9"
-content-hash = "48dfc990efd6c74ef6e0fe5cc9d2b8ace01f4aa670d6ead3baa043951a6a995d"
+python-versions = "^3.10"
+content-hash = "a60d887db83a029ab9a9f2186a141008e7856eb297746961c946640f3f2bbfcc"
